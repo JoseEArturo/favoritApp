@@ -6,4 +6,6 @@
     <string name="main_btnAcceder_errorTitulo">Campos vacíos</string>
     <string name="main_btnAcceder_errorMensaje">Digite el correo y la constraseña</string>
     <string name="main_btnRegistrar_text">Registrese</string>
+    <string name="acercade_btnVolver">Volver</string>
+    <string name="recyclerview_maestro">Digite el nombre del sitio o tipo de sitio</string>
 </resources>
