@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">favoritApp</string>
+    <string name="main_txtEmail_hint">Digite el email.</string>
+    <string name="main_txtClave_hint">Digite la contraseña.</string>
+    <string name="main_btnAcceder_text">Acceder</string>
+    <string name="main_btnAcceder_errorTitulo">Campos vacíos</string>
+    <string name="main_btnAcceder_errorMensaje">Digite el correo y la constraseña</string>
+    <string name="main_btnRegistrar_text">Registrese</string>
+</resources>
