@@ -85,7 +85,7 @@
         app:backgroundTint="#24B8AB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_btnnuevo" />
+        app:srcCompat="@drawable/ic_btnNuevo" />
 
 
 </RelativeLayout>
