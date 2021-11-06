@@ -2,8 +2,105 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_constrainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/main_tvCabecera"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#0D8DB5"
+        android:gravity="center"
+        android:text="FavoritApp"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/main_tvMenuPrincipal"
+        android:layout_width="279dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Menú Principal"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_tvCabecera" />
+
+    <Button
+        android:id="@+id/main_btnMapa"
+        android:layout_width="318dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="60dp"
+        android:layout_weight="1"
+        android:backgroundTint="#24B8AB"
+        android:text="Mapa"
+        android:textAlignment="center"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:icon="@mipmap/ic_map_adaptive_fore"
+        app:iconSize="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_tvMenuPrincipal" />
+
+    <Button
+        android:id="@+id/main_btnFavoritos"
+        android:layout_width="318dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:backgroundTint="#24B8AB"
+        android:text="Favoritos"
+        android:textAlignment="center"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:icon="@mipmap/ic_favorite_adaptive_fore"
+        app:iconSize="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_btnMapa" />
+
+    <Button
+        android:id="@+id/main_btnCerrarSesion"
+        android:layout_width="318dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="130dp"
+        android:layout_weight="1"
+        android:backgroundTint="#0D8DB5"
+        android:text="Cerrar Sesión"
+        android:textAlignment="textStart"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:icon="@mipmap/ic_logout_adaptive_fore"
+        app:iconSize="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_btnFavoritos" />
+
+    <ImageButton
+        android:id="@+id/main_btnAcercaDe"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#0D8DB5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/main_tvCabecera"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
