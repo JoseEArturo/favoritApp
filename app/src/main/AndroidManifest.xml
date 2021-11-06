@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FavoritApp">
         <activity
+            android:name=".Mapa"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".Detalle_sitio"
+            android:exported="false" />
+        <activity
             android:name=".Favoritos"
             android:exported="false" />
         <activity
