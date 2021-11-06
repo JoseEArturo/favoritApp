@@ -3,14 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Jose/AndroidStudioProjects/favoritApp/app/src/main/res/drawable/figuraboton.xml" value="0.15520833333333334" />
-        <entry key="..\:/Users/Jose/AndroidStudioProjects/favoritApp/app/src/main/res/drawable/figuraitem.xml" value="0.15520833333333334" />
-        <entry key="..\:/Users/Jose/AndroidStudioProjects/favoritApp/app/src/main/res/drawable/splash.xml" value="0.15520833333333334" />
-        <entry key="..\:/Users/Jose/AndroidStudioProjects/favoritApp/app/src/main/res/layout/activity_acerca_de.xml" value="0.33" />
-        <entry key="..\:/Users/Jose/AndroidStudioProjects/favoritApp/app/src/main/res/layout/activity_detalle_sitio.xml" value="0.13177083333333334" />
-        <entry key="..\:/Users/Jose/AndroidStudioProjects/favoritApp/app/src/main/res/layout/activity_favoritos.xml" value="0.33" />
-        <entry key="..\:/Users/Jose/AndroidStudioProjects/favoritApp/app/src/main/res/layout/activity_login.xml" value="0.13177083333333334" />
         <entry key="..\:/Users/Jose/AndroidStudioProjects/favoritApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/oskr/Documents/GitHub/favoritApp/app/src/main/res/layout/activity_acerca_de.xml" value="0.22153846153846155" />
+        <entry key="..\:/Users/oskr/Documents/GitHub/favoritApp/app/src/main/res/layout/activity_detalle_sitio.xml" value="0.225" />
+        <entry key="..\:/Users/oskr/Documents/GitHub/favoritApp/app/src/main/res/layout/activity_favoritos.xml" value="0.225" />
+        <entry key="..\:/Users/oskr/Documents/GitHub/favoritApp/app/src/main/res/layout/activity_login.xml" value="0.225" />
+        <entry key="..\:/Users/oskr/Documents/GitHub/favoritApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/oskr/Documents/GitHub/favoritApp/app/src/main/res/layout/activity_mapa.xml" value="0.25" />
       </map>
     </option>
   </component>
@@ -19,5 +18,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.225" />
+      </ProjectState>
+    </option>
   </component>
 </project>
