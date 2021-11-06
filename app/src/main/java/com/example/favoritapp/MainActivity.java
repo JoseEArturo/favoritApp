@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
         Button btnAcceder = (Button) findViewById(R.id.main_btnAcceder);
         EditText txtEmail = (EditText) findViewById(R.id.main_edtEmail);
         EditText txtClave = (EditText) findViewById(R.id.main_edClave);
@@ -33,6 +34,6 @@ public class MainActivity extends AppCompatActivity {
                     mensaje.show();
                 }
             }
-        });
+        });*/
     }
 }
