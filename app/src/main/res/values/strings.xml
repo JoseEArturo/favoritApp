@@ -8,4 +8,12 @@
     <string name="main_btnRegistrar_text">Registrese</string>
     <string name="acercade_btnVolver">Volver</string>
     <string name="recyclerview_maestro">Digite el nombre del sitio o tipo de sitio</string>
+    <string name="registrar_titulo">Nuevo sitio</string>
+    <string name="registrar_txtNombre">Digite el nombre del sitio</string>
+    <string name="registrar_txtDescripcion">Digite la descripción del sitio</string>
+    <string name="registrar_spnTipo">Seleccione el tipo de sitio</string>
+    <string name="registrar_txtLatitud">Digite o ubique la latitud del sitio</string>
+    <string name="registrar_txtLongitud">Digite o ubique la longitud del sitio</string>
+    <string name="registrar_bdExitoso">Se ha guardado el registro correctamente.</string>
+    <string name="registrar_bdFallo">Ha ocurrido un error al intentar guardar el registro.</string>
 </resources>

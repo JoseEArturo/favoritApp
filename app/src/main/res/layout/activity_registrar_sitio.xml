@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registrar_sitio">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#0D8DB5"
+        android:gravity="bottom"
+        android:padding="16dp"
+        android:text="@string/registrar_titulo"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/marcador_txtNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="@string/registrar_txtNombre"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/frmMarcador_txtDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/registrar_txtDescripcion"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/marcador_txtNombre" />
+
+    <Spinner
+        android:id="@+id/frmMarcador_spnTipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_txtDescripcion" />
+
+    <EditText
+        android:id="@+id/frmMarcador_spnLatitud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="@string/registrar_txtLatitud"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_spnTipo" />
+
+    <EditText
+        android:id="@+id/frmMarcador_txtLongitud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="@string/registrar_txtLongitud"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_spnLatitud" />
+
+    <Button
+        android:id="@+id/frmMarcador_btnGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/green"
+        android:drawableLeft="@android:drawable/ic_menu_save"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="Guardar"
+        app:iconPadding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_txtLongitud" />
+
+    <Button
+        android:id="@+id/frmMarcador_btnCancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="@color/blue"
+        android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="Cancelar"
+        app:iconPadding="4dp"
+        app:iconTint="#E8E7E7"
+        app:layout_constraintEnd_toStartOf="@+id/frmMarcador_btnGuardar"
+        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_txtLongitud" />
+
+    <ImageButton
+        android:id="@+id/marcador_btnObtenerUbicacion"
+        android:layout_width="69dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="@color/white"
+        android:padding="14dp"
+        android:tint="#0D8DB5"
+        app:layout_constraintEnd_toStartOf="@+id/frmMarcador_btnCancelar"
+        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_txtLongitud"
+        app:srcCompat="@drawable/ic_posicion" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
