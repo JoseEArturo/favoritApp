@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">favoritApp</string>
-    <string name="main_txtEmail_hint">Digite el email.</string>
-    <string name="main_txtClave_hint">Digite la contraseña.</string>
-    <string name="main_btnAcceder_text">Acceder</string>
-    <string name="main_btnAcceder_errorTitulo">Campos vacíos</string>
-    <string name="main_btnAcceder_errorMensaje">Digite el correo y la constraseña</string>
-    <string name="main_btnRegistrar_text">Registrese</string>
+    <string name="login_txtEmail_hint">Digite el email.</string>
+    <string name="login_txtClave_hint">Digite la contraseña.</string>
+    <string name="login_btnAcceder_text">Acceder</string>
+    <string name="login_btnAcceder_errorTitulo">Campos vacíos</string>
+    <string name="login_btnAcceder_errorMensaje">Digite el correo y la constraseña</string>
+    <string name="login_btnRegistrar_text">Registrese</string>
     <string name="acercade_btnVolver">Volver</string>
     <string name="recyclerview_maestro">Digite el nombre del sitio o tipo de sitio</string>
     <string name="registrar_titulo">Nuevo sitio</string>
@@ -16,4 +16,10 @@
     <string name="registrar_txtLongitud">Digite o ubique la longitud del sitio</string>
     <string name="registrar_bdExitoso">Se ha guardado el registro correctamente.</string>
     <string name="registrar_bdFallo">Ha ocurrido un error al intentar guardar el registro.</string>
+
+    <string name="main_tvCabecera">FavoritApp</string>
+    <string name="main_tvMenuPrincipal">Menú Principal</string>
+    <string name="main_btnMapa">Mapa</string>
+    <string name="main_btnFavoritos">Favoritos</string>
+    <string name="main_btnCerrarSesion">Cerrar Sesión</string>
 </resources>
