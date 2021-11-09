@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnMapa = findViewById(R.id.main_btnMapa);
         Button btnFavoritos = findViewById(R.id.main_btnFavoritos);
+        Button btnCerrarSesion = findViewById(R.id.main_btnCerrarSesion);
         ImageButton btnAcercaDe = findViewById(R.id.main_btnAcercaDe);
 
         btnMapa.setOnClickListener(new View.OnClickListener() {
@@ -32,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Favoritos.class));
+            }
+        });
+
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Login.class));
             }
         });
 
