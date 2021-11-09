@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">favoritApp</string>
+    <string name="app_name">FavoritApp</string>
     <string name="login_txtEmail_hint">Digite el email.</string>
     <string name="login_txtClave_hint">Digite la contraseña.</string>
     <string name="login_btnAcceder_text">Acceder</string>
