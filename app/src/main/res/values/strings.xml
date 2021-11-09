@@ -1,13 +1,17 @@
 <resources>
     <string name="app_name">FavoritApp</string>
+
     <string name="login_txtEmail_hint">Digite el email.</string>
     <string name="login_txtClave_hint">Digite la contraseña.</string>
     <string name="login_btnAcceder_text">Acceder</string>
     <string name="login_btnAcceder_errorTitulo">Campos vacíos</string>
     <string name="login_btnAcceder_errorMensaje">Digite el correo y la constraseña</string>
     <string name="login_btnRegistrar_text">Registrese</string>
+
     <string name="acercade_btnVolver">Volver</string>
+
     <string name="recyclerview_maestro">Digite el nombre del sitio o tipo de sitio</string>
+
     <string name="registrar_titulo">Nuevo sitio</string>
     <string name="registrar_txtNombre">Digite el nombre del sitio</string>
     <string name="registrar_txtDescripcion">Digite la descripción del sitio</string>
