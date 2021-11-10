@@ -28,15 +28,21 @@ public class Login extends AppCompatActivity {
 
                 if(email.isEmpty() || clave.isEmpty()){
                     AlertDialog.Builder mensaje = new AlertDialog.Builder(view.getContext());
-                    mensaje.setTitle(R.string.login_btnAcceder_errorTitulo);
-                    mensaje.setMessage(R.string.login_btnAcceder_errorMensaje);
+                    mensaje.setTitle(R.string.login_btnAcceder_vacioTitulo);
+                    mensaje.setMessage(R.string.login_btnAcceder_vacioMensaje);
                     mensaje.create();
                     mensaje.show();
                 }
                 else if(email.equals("ejemplo@gmail.com") && clave.equals("1234")){
                     Intent i = new Intent(view.getContext(), MainActivity.class);
-                    i.putExtra("email", txtEmail.getText().toString());
                     startActivity(i);
+                }
+                else {
+                    AlertDialog.Builder mensaje = new AlertDialog.Builder(view.getContext());
+                    mensaje.setTitle(R.string.login_btnAcceder_errorTitulo);
+                    mensaje.setMessage(R.string.login_btnAcceder_errorMensaje);
+                    mensaje.create();
+                    mensaje.show();
                 }
             }
         });

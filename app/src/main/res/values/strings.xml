@@ -4,8 +4,10 @@
     <string name="login_txtEmail_hint">Digite el email.</string>
     <string name="login_txtClave_hint">Digite la contraseña.</string>
     <string name="login_btnAcceder_text">Acceder</string>
-    <string name="login_btnAcceder_errorTitulo">Campos vacíos</string>
-    <string name="login_btnAcceder_errorMensaje">Digite el correo y la constraseña</string>
+    <string name="login_btnAcceder_vacioTitulo">Campos vacíos</string>
+    <string name="login_btnAcceder_vacioMensaje">Digite el correo y la constraseña</string>
+    <string name="login_btnAcceder_errorTitulo">Error</string>
+    <string name="login_btnAcceder_errorMensaje">El correo y la contraseña no son correctos</string>
     <string name="login_btnRegistrar_text">Registrese</string>
 
     <string name="acercade_btnVolver">Volver</string>
