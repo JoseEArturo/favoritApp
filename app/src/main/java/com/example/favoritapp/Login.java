@@ -2,6 +2,8 @@ package com.example.favoritapp;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +32,11 @@ public class Login extends AppCompatActivity {
                     mensaje.setMessage(R.string.login_btnAcceder_errorMensaje);
                     mensaje.create();
                     mensaje.show();
+                }
+                else if(email.equals("ejemplo@gmail.com") && clave.equals("1234")){
+                    Intent i = new Intent(view.getContext(), MainActivity.class);
+                    i.putExtra("email", txtEmail.getText().toString());
+                    startActivity(i);
                 }
             }
         });
