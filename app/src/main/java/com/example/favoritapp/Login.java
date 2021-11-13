@@ -16,12 +16,23 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Bundle variables = getIntent().getExtras();
+
         Button btnAcceder = (Button) findViewById(R.id.main_btnAcceder);
         Button btnRegistro = (Button) findViewById(R.id.main_btnRegistro);
         EditText txtEmail = (EditText) findViewById(R.id.main_edtEmail);
         EditText txtClave = (EditText) findViewById(R.id.main_edClave);
 
+        try {
+            txtEmail.setText(variables.getString("email"));
+            txtClave.setText(variables.getString("clave"));
+        }catch (Exception ex){
+
+        }
+
+
         btnAcceder.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 String email = txtEmail.getText().toString();
@@ -34,7 +45,7 @@ public class Login extends AppCompatActivity {
                     mensaje.create();
                     mensaje.show();
                 }
-                else if(email.equals("ejemplo@gmail.com") && clave.equals("1234")){
+                else if(email.equals(txtEmail.getText().toString()) && clave.equals(txtClave.getText().toString())){
                     Intent i = new Intent(view.getContext(), MainActivity.class);
                     startActivity(i);
                 }

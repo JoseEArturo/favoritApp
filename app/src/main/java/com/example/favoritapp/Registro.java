@@ -2,6 +2,7 @@ package com.example.favoritapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -44,7 +45,15 @@ public class Registro extends AppCompatActivity {
                     us.setClave(clave);
                     long id = registro.insertar(us);
                     if(id>0)
-                        new Mensajes(view.getContext()).alert("Registro insertado", "Se ha insertado el registro correctamente con el codigo " + String.valueOf(id));
+                        new Mensajes(view.getContext()).confirmSi("Registro insertado", "Se ha insertado el registro correctamente con el codigo " + String.valueOf(id), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent in = new Intent(view.getContext(), Login.class);
+                                in.putExtra("email", email);
+                                in.putExtra("clave", clave);
+                                startActivity(in);
+                            }
+                        });
                     else
                         new Mensajes(view.getContext()).alert("Error", "Se ha producido un error al intentar insertar el registro.");
 
@@ -61,6 +70,7 @@ public class Registro extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(Registro.this, Login.class));
             }
         });

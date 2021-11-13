@@ -31,4 +31,14 @@ public class Mensajes {
         msj.create();
         msj.show();
     }
+
+    public void confirmSi(String titulo, String cuerpo, DialogInterface.OnClickListener opcionSi)
+    {
+        AlertDialog.Builder msj = new AlertDialog.Builder(this.contexto);
+        msj.setTitle(titulo);
+        msj.setMessage(cuerpo);
+        msj.setPositiveButton("Aceptar", opcionSi);
+        msj.create();
+        msj.show();
+    }
 }
