@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">FavoritApp</string>
+
+    <string name="tituloPlaceHolder">Título de Prueba</string>
+    <string name="descripcionPlaceHolder">Esta es una descripción de prueba para verificar cómo se ve el texto, sin necesidad de recurrir a un lórem ipsum, jsjs salu2, firma x.</string>
+
     <string name="btnVolver">Volver</string>
     <string name="btnGuardar">Guardar</string>
+    <string name="btnEliminar">Eliminar</string>
 
     <string name="login_txtEmail_hint">Digite el email.</string>
     <string name="login_txtClave_hint">Digite la contraseña.</string>
