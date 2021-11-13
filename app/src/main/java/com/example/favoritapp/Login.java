@@ -17,6 +17,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Button btnAcceder = (Button) findViewById(R.id.main_btnAcceder);
+        Button btnRegistro = (Button) findViewById(R.id.main_btnRegistro);
         EditText txtEmail = (EditText) findViewById(R.id.main_edtEmail);
         EditText txtClave = (EditText) findViewById(R.id.main_edClave);
 
@@ -44,6 +45,13 @@ public class Login extends AppCompatActivity {
                     mensaje.create();
                     mensaje.show();
                 }
+            }
+        });
+
+        btnRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this, Registro.class));
             }
         });
     }
