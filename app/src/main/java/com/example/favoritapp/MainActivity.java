@@ -1,13 +1,11 @@
 package com.example.favoritapp;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnMapa = findViewById(R.id.main_btnMapa);
         Button btnFavoritos = findViewById(R.id.main_btnFavoritos);
         Button btnCerrarSesion = findViewById(R.id.main_btnCerrarSesion);
-        ImageButton btnAcercaDe = findViewById(R.id.main_btnAcercaDe);
+        ImageButton ibtnAcercaDe = findViewById(R.id.main_ibtnAcercaDe);
 
         btnMapa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnAcercaDe.setOnClickListener(new View.OnClickListener() {
+        ibtnAcercaDe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, AcercaDe.class));

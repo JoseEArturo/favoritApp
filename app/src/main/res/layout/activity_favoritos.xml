@@ -7,7 +7,7 @@
     tools:context=".Favoritos">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/favoritos_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#0D8DB5"
@@ -18,16 +18,16 @@
         app:title="Tus sitios favoritos" />
 
     <EditText
-        android:id="@+id/txt_criterio"
+        android:id="@+id/favoritos_txtCriterio"
         android:hint="@string/recyclerview_maestro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/favoritos_toolbar"
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="8dp"
-        android:layout_toStartOf="@+id/btnBuscar"
+        android:layout_toStartOf="@+id/favoritos_btnBuscar"
         android:background="@drawable/figuraboton"
         android:backgroundTint="#FFFFFF"
         android:ellipsize="end"
@@ -36,11 +36,11 @@
         android:src="@android:drawable/ic_menu_save" />
 
     <ImageButton
-        android:id="@+id/btnBuscar"
+        android:id="@+id/favoritos_btnBuscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/favoritos_toolbar"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
@@ -54,19 +54,19 @@
         android:text="Eliminar" />
 
     <View
-        android:id="@+id/linea"
+        android:id="@+id/favoritos_linea"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@id/btnBuscar"
+        android:layout_below="@id/favoritos_btnBuscar"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:background="#D3D3D3" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcwMarcadores"
+        android:id="@+id/favoritos_rcwMarcadores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linea"
+        android:layout_below="@id/favoritos_linea"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
@@ -74,13 +74,13 @@
         android:scrollbars="vertical" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/recyclerview_btnNuevo"
+        android:id="@+id/favoritos_fbtnNuevo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
         app:backgroundTint="#24B8AB"
         app:layout_constraintBottom_toBottomOf="parent"

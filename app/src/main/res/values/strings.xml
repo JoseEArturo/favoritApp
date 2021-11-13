@@ -7,6 +7,7 @@
     <string name="btnVolver">Volver</string>
     <string name="btnGuardar">Guardar</string>
     <string name="btnEliminar">Eliminar</string>
+    <string name="btnCancelar">Cancelar</string>
 
     <string name="login_txtEmail_hint">Digite el email.</string>
     <string name="login_txtClave_hint">Digite la contraseña.</string>

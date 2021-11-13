@@ -7,7 +7,7 @@
     tools:context=".Registrar_sitio">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/registrarSitio_cabecera"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="#0D8DB5"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/marcador_txtNombre"
+        android:id="@+id/registrarSitio_txtNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -34,10 +34,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/registrarSitio_cabecera" />
 
     <EditText
-        android:id="@+id/frmMarcador_txtDescripcion"
+        android:id="@+id/registrarSitio_txtDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -49,10 +49,10 @@
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/marcador_txtNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/registrarSitio_txtNombre" />
 
     <Spinner
-        android:id="@+id/frmMarcador_spnTipo"
+        android:id="@+id/registrarSitio_spnTipo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -60,10 +60,10 @@
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_txtDescripcion" />
+        app:layout_constraintTop_toBottomOf="@+id/registrarSitio_txtDescripcion" />
 
     <EditText
-        android:id="@+id/frmMarcador_spnLatitud"
+        android:id="@+id/registrarSitio_txtLatitud"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -75,10 +75,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_spnTipo" />
+        app:layout_constraintTop_toBottomOf="@+id/registrarSitio_spnTipo" />
 
     <EditText
-        android:id="@+id/frmMarcador_txtLongitud"
+        android:id="@+id/registrarSitio_txtLongitud"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -90,10 +90,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_spnLatitud" />
+        app:layout_constraintTop_toBottomOf="@+id/registrarSitio_txtLatitud" />
 
     <Button
-        android:id="@+id/frmMarcador_btnGuardar"
+        android:id="@+id/registrarSitio_btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -102,13 +102,13 @@
         android:drawableLeft="@android:drawable/ic_menu_save"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
-        android:text="Guardar"
+        android:text="@string/btnGuardar"
         app:iconPadding="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_txtLongitud" />
+        app:layout_constraintTop_toBottomOf="@+id/registrarSitio_txtLongitud" />
 
     <Button
-        android:id="@+id/frmMarcador_btnCancelar"
+        android:id="@+id/registrarSitio_btnCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -117,22 +117,22 @@
         android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
-        android:text="Cancelar"
+        android:text="@string/btnCancelar"
         app:iconPadding="4dp"
         app:iconTint="#E8E7E7"
-        app:layout_constraintEnd_toStartOf="@+id/frmMarcador_btnGuardar"
-        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_txtLongitud" />
+        app:layout_constraintEnd_toStartOf="@+id/registrarSitio_btnGuardar"
+        app:layout_constraintTop_toBottomOf="@+id/registrarSitio_txtLongitud" />
 
     <ImageButton
-        android:id="@+id/marcador_btnObtenerUbicacion"
+        android:id="@+id/registrarSitio_ibtnObtenerUbicacion"
         android:layout_width="69dp"
         android:layout_height="54dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="12dp"
         android:backgroundTint="@color/white"
         android:padding="14dp"
-        app:layout_constraintEnd_toStartOf="@+id/frmMarcador_btnCancelar"
-        app:layout_constraintTop_toBottomOf="@+id/frmMarcador_txtLongitud"
+        app:layout_constraintEnd_toStartOf="@+id/registrarSitio_btnCancelar"
+        app:layout_constraintTop_toBottomOf="@+id/registrarSitio_txtLongitud"
         app:srcCompat="@drawable/ic_posicion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

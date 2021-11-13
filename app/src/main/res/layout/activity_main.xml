@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/main_btnFavoritos" />
 
     <ImageButton
-        android:id="@+id/main_btnAcercaDe"
+        android:id="@+id/main_ibtnAcercaDe"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
