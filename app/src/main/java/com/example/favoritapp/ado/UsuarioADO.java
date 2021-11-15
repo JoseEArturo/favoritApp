@@ -74,10 +74,10 @@ public class UsuarioADO extends SqliteConex {
     {
         boolean validado = false;
 
-        String emailFijo = "user@gmail.com";
-        String claveFija = "root";
+        String emailPrueba = "usuario@gmail.com";
+        String clavePrueba = "prueba";
 
-        if(us.getEmail().equals(emailFijo) && us.getClave().equals(claveFija))
+        if(us.getEmail().equals(emailPrueba) && us.getClave().equals(clavePrueba))
             validado=true;
 
         return validado;

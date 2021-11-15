@@ -87,5 +87,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_nuevo" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/favoritos_fbtnRegresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#0D8DB5"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_regresar" />
+
 
 </RelativeLayout>
