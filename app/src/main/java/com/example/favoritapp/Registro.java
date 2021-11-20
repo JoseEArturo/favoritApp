@@ -71,7 +71,7 @@ public class Registro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(Registro.this, Login.class));
+                onBackPressed();
             }
         });
     }

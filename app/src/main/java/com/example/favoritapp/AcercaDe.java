@@ -19,7 +19,7 @@ public class AcercaDe extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AcercaDe.this, MainActivity.class));
+                onBackPressed();
             }
         });
 
