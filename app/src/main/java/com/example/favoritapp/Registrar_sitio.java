@@ -3,6 +3,7 @@ package com.example.favoritapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -50,8 +51,8 @@ public class Registrar_sitio extends AppCompatActivity {
                 String descripcion = txtDescripcion.getText().toString();
                 String la = txtLatitud.getText().toString();
                 String lo = txtLongitud.getText().toString();
-                double latitud=Double.valueOf(la).doubleValue();
-                double longitud=Double.valueOf(lo).doubleValue();
+                double latitud=Double.valueOf(la);
+                double longitud=Double.valueOf(lo);
 
                 if(validarCampos(nombre, descripcion, latitud, longitud))
                 {
@@ -64,7 +65,12 @@ public class Registrar_sitio extends AppCompatActivity {
 
                         SitiosADO db = new SitiosADO(view.getContext());
                         if(db.editar(registro))
-                            new Mensajes(view.getContext()).alert("Registro actualizado", "Se ha actualizado el registro correctamente.");
+                            new Mensajes(view.getContext()).confirmSi("Registro actualizado", "Se ha actualizado el registro correctamente.", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    onBackPressed();
+                                }
+                            });
                         else
                             new Mensajes(view.getContext()).alert("Error", "Se ha producido un error al intentar actualizar el registro.");
                     }
@@ -77,11 +83,16 @@ public class Registrar_sitio extends AppCompatActivity {
                         sit.setLongitud(longitud);
                         long idInsercion = registro.insertar(sit);
                         if (idInsercion > 0)
-                            new Mensajes(view.getContext()).alert("Registro insertado", "Se ha insertado el registro correctamente con el codigo " + String.valueOf(idInsercion));
+                            new Mensajes(view.getContext()).confirmSi("Registro insertado", "Se ha insertado el registro correctamente con el codigo " + String.valueOf(idInsercion), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    onBackPressed();
+                                }
+                            });
                         else
                             new Mensajes(view.getContext()).alert("Error", "Se ha producido un error al intentar insertar el registro.");
                     }
-                    onBackPressed();
+
                 }
                 else
                 {
@@ -112,7 +123,7 @@ public class Registrar_sitio extends AppCompatActivity {
     {
         this.txtNombre.setText(this.registro.getNombre());
         this.txtDescripcion.setText(this.registro.getDescripcion());
-        this.txtLatitud.setText((int) this.registro.getLatitud());
-        this.txtLongitud.setText((int) this.registro.getLongitud());
+        this.txtLatitud.setText( String.valueOf(this.registro.getLatitud()));
+        this.txtLongitud.setText( String.valueOf(this.registro.getLongitud()));
     }
 }
