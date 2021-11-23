@@ -4,6 +4,7 @@ public class Sitios {
     private int id;
     private String nombre;
     private String descripcion;
+    private  String tipo;
     private double latitud;
     private double longitud;
 
@@ -11,6 +12,7 @@ public class Sitios {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.tipo = tipo;
         this.latitud = latitud;
         this.longitud = longitud;
     }
@@ -37,6 +39,14 @@ public class Sitios {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public double getLatitud() {

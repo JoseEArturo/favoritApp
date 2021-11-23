@@ -50,6 +50,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
 
         private TextView txtNombre;
         private TextView txtDescripcion;
+        private TextView txtTipo;
         private long id;
 
         public ViewHolderRegistro(@NonNull View itemView) {
@@ -58,6 +59,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
 
             txtNombre = (TextView) itemView.findViewById(R.id.recyclerviewitem_txtNombre);
             txtDescripcion = (TextView) itemView.findViewById(R.id.recyclerviewitem_txtDescripcion);
+            txtTipo = (TextView) itemView.findViewById(R.id.recyclerviewitem_txtTipo);
+
             ImageButton btnEditar = (ImageButton) itemView.findViewById(R.id.recyclerviewitem_btnEditar);
             ImageButton btnEliminar = (ImageButton) itemView.findViewById(R.id.recyclerviewitem_btnEliminar);
 
@@ -103,6 +106,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         {
             txtNombre.setText(sit.getNombre());
             txtDescripcion.setText(sit.getDescripcion());
+            txtTipo.setText(sit.getTipo());
             id = sit.getId();
         }
     }

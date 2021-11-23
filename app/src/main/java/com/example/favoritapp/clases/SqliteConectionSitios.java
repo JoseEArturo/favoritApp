@@ -17,7 +17,7 @@ public class SqliteConectionSitios extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE sitios (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nombre VARCHAR (100) NOT NULL, descripcion TEXT, latitud DECIMAL (4, 8) NOT NULL, longitud DECIMAL (4, 8) NOT NULL)");
+        sqLiteDatabase.execSQL("CREATE TABLE sitios (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nombre VARCHAR (100) NOT NULL, descripcion TEXT, tipo VARCHAR (45) NOT NULL, latitud DECIMAL (4, 8) NOT NULL, longitud DECIMAL (4, 8) NOT NULL)");
     }
 
     @Override

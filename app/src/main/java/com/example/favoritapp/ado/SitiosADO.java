@@ -34,6 +34,7 @@ public class SitiosADO extends SqliteConectionSitios {
             ContentValues valores = new ContentValues();
             valores.put("nombre", sit.getNombre());
             valores.put("descripcion", sit.getDescripcion());
+            valores.put("tipo", sit.getTipo());
             valores.put("latitud", sit.getLatitud());
             valores.put("longitud", sit.getLongitud());
 
@@ -59,14 +60,15 @@ public class SitiosADO extends SqliteConectionSitios {
 
         try
         {
-            Cursor cregistros = db.rawQuery("select id, nombre, descripcion, latitud, longitud from sitios where id = " + String.valueOf(id), null);
+            Cursor cregistros = db.rawQuery("select id, nombre, descripcion, tipo, latitud, longitud from sitios where id = " + String.valueOf(id), null);
             cregistros.moveToFirst();
             sit = new Sitios();
             sit.setId(cregistros.getInt(0));
             sit.setNombre(cregistros.getString(1));
             sit.setDescripcion(cregistros.getString(2));
-            sit.setLatitud(cregistros.getDouble(3));
-            sit.setLongitud(cregistros.getDouble(4));
+            sit.setTipo(cregistros.getString(3));
+            sit.setLatitud(cregistros.getDouble(4));
+            sit.setLongitud(cregistros.getDouble(5));
 
         }
         catch (Exception ex)
@@ -86,7 +88,7 @@ public class SitiosADO extends SqliteConectionSitios {
         SQLiteDatabase db = conexion.getWritableDatabase();
 
         try {
-            Cursor cregistros = db.rawQuery("select id, nombre, descripcion, latitud, longitud from sitios", null);
+            Cursor cregistros = db.rawQuery("select id, nombre, descripcion, tipo, latitud, longitud from sitios", null);
 
             if (cregistros.moveToFirst())
                 do {
@@ -94,8 +96,9 @@ public class SitiosADO extends SqliteConectionSitios {
                     sit.setId(cregistros.getInt(0));
                     sit.setNombre(cregistros.getString(1));
                     sit.setDescripcion(cregistros.getString(2));
-                    sit.setLatitud(cregistros.getDouble(3));
-                    sit.setLongitud(cregistros.getDouble(4));
+                    sit.setTipo(cregistros.getString(3));
+                    sit.setLatitud(cregistros.getDouble(4));
+                    sit.setLongitud(cregistros.getDouble(5));
 
                     registros.add(sit);
                 } while (cregistros.moveToNext());
@@ -123,6 +126,7 @@ public class SitiosADO extends SqliteConectionSitios {
             db.execSQL("UPDATE sitios" +
                     "   SET nombre = '" + sit.getNombre() + "'," +
                     "       descripcion = '" + sit.getDescripcion() + "'," +
+                    "       tipo = '" + sit.getTipo() + "'," +
                     "       latitud = '" + sit.getLatitud() + "'," +
                     "       longitud = '" + sit.getLongitud() + "'" +
                     " WHERE id = '" + String.valueOf(sit.getId()) + "'");

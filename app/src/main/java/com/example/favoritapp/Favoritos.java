@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.favoritapp.adapters.AdapterRecyclerView;
 import com.example.favoritapp.ado.SitiosADO;
@@ -27,6 +28,7 @@ public class Favoritos extends AppCompatActivity {
         FloatingActionButton btnAgregarSitio = (FloatingActionButton) findViewById(R.id.favoritos_fbtnNuevo);
         FloatingActionButton btnVolver = (FloatingActionButton) findViewById(R.id.favoritos_fbtnRegresar);
 
+
         btnAgregarSitio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,6 +42,7 @@ public class Favoritos extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
     }
     @Override
     protected void onResume() {
@@ -53,9 +56,9 @@ public class Favoritos extends AppCompatActivity {
         rcvUsuarios.setLayoutManager(new LinearLayoutManager(this));
 
         SitiosADO db = new SitiosADO(this);
-        ArrayList<Sitios> usuarios = db.listar();
+        ArrayList<Sitios> sitios = db.listar();
 
-        AdapterRecyclerView adaptador = new AdapterRecyclerView(usuarios);
+        AdapterRecyclerView adaptador = new AdapterRecyclerView(sitios);
         rcvUsuarios.setAdapter(adaptador);
 
     }
