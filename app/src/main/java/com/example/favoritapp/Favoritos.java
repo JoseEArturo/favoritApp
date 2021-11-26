@@ -13,6 +13,10 @@ import com.example.favoritapp.adapters.AdapterRecyclerView;
 import com.example.favoritapp.ado.SitiosADO;
 import com.example.favoritapp.modelos.Sitios;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -23,7 +27,42 @@ public class Favoritos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favoritos);
 
-        this.actualizarLista();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        try {
+            database.setPersistenceEnabled(true);
+        }
+        catch (Exception ex)
+        {}
+
+
+        // Read from the database
+        RecyclerView rcvUsuarios = (RecyclerView) findViewById(R.id.favoritos_rcwMarcadores);
+        rcvUsuarios.setLayoutManager(new LinearLayoutManager(this));
+
+        ArrayList<Sitios> sitios = new ArrayList<>();
+        database.getReference().child("Sitios").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                sitios.clear();
+                for(DataSnapshot nodoHijo : dataSnapshot.getChildren())
+                {
+                    Sitios us = nodoHijo.getValue(Sitios.class);
+                    sitios.add(us);
+                }
+
+                AdapterRecyclerView adaptador = new AdapterRecyclerView(sitios);
+                rcvUsuarios.setAdapter(adaptador);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+            }
+        });
+
+       // this.actualizarLista();
 
         FloatingActionButton btnAgregarSitio = (FloatingActionButton) findViewById(R.id.favoritos_fbtnNuevo);
         FloatingActionButton btnVolver = (FloatingActionButton) findViewById(R.id.favoritos_fbtnRegresar);
@@ -47,7 +86,7 @@ public class Favoritos extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        actualizarLista();
+        //actualizarLista();
     }
 
     private void actualizarLista()

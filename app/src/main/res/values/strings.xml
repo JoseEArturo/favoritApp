@@ -42,4 +42,6 @@
     <string name="registro_usuario_txtClave">Digite la contraseña del usuario</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="web_client">817973665613-vsup6p39as7pvqdfrqrhhnlanjh02q9u.apps.googleusercontent.com</string>
 </resources>

@@ -73,4 +73,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_btnAcceder" />
 
+    <ImageButton
+        android:id="@+id/login_btnGoogle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_btnRegistro"
+        app:srcCompat="@drawable/google" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

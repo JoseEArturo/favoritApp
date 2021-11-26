@@ -1,6 +1,5 @@
 package com.example.favoritapp;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
@@ -14,6 +13,9 @@ import android.widget.Spinner;
 import com.example.favoritapp.ado.SitiosADO;
 import com.example.favoritapp.clases.Mensajes;
 import com.example.favoritapp.modelos.Sitios;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Registrar_sitio extends AppCompatActivity {
 
@@ -28,6 +30,7 @@ public class Registrar_sitio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_sitio);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         txtNombre = (EditText) findViewById(R.id.registrarSitio_txtNombre);
         txtDescripcion = (EditText) findViewById(R.id.registrarSitio_txtDescripcion);
@@ -54,6 +57,9 @@ public class Registrar_sitio extends AppCompatActivity {
             {
                 SitiosADO db = new SitiosADO(this);
                 Sitios sit = db.obtenerSitio(parametros.getLong("id"));
+                if(sit==null)
+                    sit = database.getReference().child("Sitios").child(String.valueOf(parametros.getLong("id"))).get().getResult().getValue(Sitios.class);
+
                 this.registro = sit;
                 cargarDatos();
             }
@@ -98,14 +104,16 @@ public class Registrar_sitio extends AppCompatActivity {
                             new Mensajes(view.getContext()).alert("Error", "Se ha producido un error al intentar actualizar el registro.");
                     }
                     else {
-                        SitiosADO registro = new SitiosADO(view.getContext());
+                        SitiosADO registroADO = new SitiosADO(view.getContext());
                         Sitios sit = new Sitios();
                         sit.setNombre(nombre);
                         sit.setDescripcion(descripcion);
                         sit.setTipo(tipo);
                         sit.setLatitud(latitud);
                         sit.setLongitud(longitud);
-                        long idInsercion = registro.insertar(sit);
+                        long idInsercion = registroADO.insertar(sit);
+                        sit.setId((int) idInsercion);
+                        registro = sit;
 
                         if (idInsercion > 0)
                             new Mensajes(view.getContext()).confirmSi("Registro insertado", "Se ha insertado el registro correctamente con el codigo " + String.valueOf(idInsercion), new DialogInterface.OnClickListener() {
@@ -117,6 +125,10 @@ public class Registrar_sitio extends AppCompatActivity {
                         else
                             new Mensajes(view.getContext()).alert("Error", "Se ha producido un error al intentar insertar el registro.");
                     }
+
+                    // Write a message to the database
+                    database.getReference().child("Sitios").child(String.valueOf(registro.getId())).setValue(registro);
+                    onBackPressed();
 
                 }
                 else
@@ -148,7 +160,7 @@ public class Registrar_sitio extends AppCompatActivity {
     {
         this.txtNombre.setText(this.registro.getNombre());
         this.txtDescripcion.setText(this.registro.getDescripcion());
-        this.spinnerSitio.setSelection(Integer.parseInt(this.registro.getTipo()));
+        //this.spinnerSitio.getSelectedItem(this.registro.getTipo());
         this.txtLatitud.setText( String.valueOf(this.registro.getLatitud()));
         this.txtLongitud.setText( String.valueOf(this.registro.getLongitud()));
     }

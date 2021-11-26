@@ -1,7 +1,9 @@
 package com.example.favoritapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,57 +14,57 @@ import android.widget.EditText;
 import com.example.favoritapp.ado.UsuarioADO;
 import com.example.favoritapp.clases.Mensajes;
 import com.example.favoritapp.modelos.Usuario;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Registro extends AppCompatActivity {
+
+    private FirebaseAuth autenticacion;
+    private static EditText txtEmail;
+    private static EditText txtClave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+        autenticacion = FirebaseAuth.getInstance();
+
+
         Button btnVolver = (Button) findViewById(R.id.usuarios_insertar_btnVolver);
         Button btnGuardar = (Button) findViewById(R.id.usuarios_insertar_btnGuardar);
-        EditText txtNombres = (EditText) findViewById(R.id.usuarios_insertar_txtNombres);
-        EditText txtApellidos = (EditText) findViewById(R.id.usuarios_insertar_txtApellidos);
-        EditText txtEmail = (EditText) findViewById(R.id.usuarios_insertar_txtEmail);
-        EditText txtClave = (EditText) findViewById(R.id.usuarios_insertar_txtClave);
+        txtEmail = (EditText) findViewById(R.id.usuarios_insertar_txtEmail);
+        txtClave = (EditText) findViewById(R.id.usuarios_insertar_txtClave);
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nombres = txtNombres.getText().toString();
-                String apellidos = txtApellidos.getText().toString();
-                String email = txtEmail.getText().toString();
-                String clave = txtClave.getText().toString();
 
-                if(validarCampos(nombres, apellidos, email, clave))
-                {
-                    UsuarioADO registro = new UsuarioADO(view.getContext());
-                    Usuario us = new Usuario();
-                    us.setNombres(nombres);
-                    us.setApellidos(apellidos);
-                    us.setEmail(email);
-                    us.setClave(clave);
-                    long id = registro.insertar(us);
-                    if(id>0)
-                        new Mensajes(view.getContext()).confirmSi("Registro insertado", "Se ha insertado el registro correctamente con el codigo " + String.valueOf(id), new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent in = new Intent(view.getContext(), Login.class);
-                                in.putExtra("email", email);
-                                in.putExtra("clave", clave);
-                                startActivity(in);
-                            }
-                        });
-                    else
-                        new Mensajes(view.getContext()).alert("Error", "Se ha producido un error al intentar insertar el registro.");
-
-                    registro.listar();
-
-                }
-                else
+                if(validarCamposVacios())
                 {
                     new Mensajes(view.getContext()).alert("Advertencia", "Digite los campos en blanco.");
+                }
+                else {
+                    autenticacion.createUserWithEmailAndPassword(
+                            txtEmail.getText().toString(),
+                            txtClave.getText().toString()).addOnCompleteListener((Activity) view.getContext(),
+                            new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if(task.isSuccessful())
+                                    {
+                                        Intent i = new Intent(view.getContext(), Login.class);
+                                        startActivity(i);
+                                    }
+                                    else
+                                    {
+                                        new Mensajes(view.getContext()).alert("Advertencia", "No se pudo registrar el usuario.");
+                                    }
+                                }
+                            });
                 }
             }
         });
@@ -75,13 +77,20 @@ public class Registro extends AppCompatActivity {
             }
         });
     }
-    public static boolean validarCampos(String nombres, String apellidos, String email, String clave)
+
+    public static boolean validarCamposVacios()
     {
-        boolean camposAceptados = false;
+        boolean vacio = true;
 
-        if((!nombres.isEmpty() && !apellidos.isEmpty() && !email.isEmpty() && !clave.isEmpty()))
-            camposAceptados=true;
+        try {
+            if(!txtEmail.getText().toString().isEmpty() && !txtClave.getText().toString().isEmpty())
+                vacio=false;
+        }
+        catch (Exception ex)
+        {
 
-        return camposAceptados;
+        }
+
+        return vacio;
     }
 }
