@@ -2,6 +2,7 @@ package com.example.favoritapp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -20,7 +21,23 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapFragmentSitios extends Fragment {
+public class MapFragmentSitios extends DialogFragment {
+
+    private double lat;
+    private double lon;
+
+    public MapFragmentSitios(){
+
+    }
+
+    public static MapFragmentSitios newInstance(double la, double lo){
+         MapFragmentSitios fragmento = new MapFragmentSitios();
+         Bundle args = new Bundle();
+         args.putDouble("latitud", la);
+         args.putDouble("longitud", lo);
+         fragmento.setArguments(args);
+         return fragmento;
+    }
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 

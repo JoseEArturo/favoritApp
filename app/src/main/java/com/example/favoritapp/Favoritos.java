@@ -52,7 +52,7 @@ public class Favoritos extends AppCompatActivity {
                     sitios.add(us);
                 }
 
-                AdapterRecyclerView adaptador = new AdapterRecyclerView(sitios);
+                AdapterRecyclerView adaptador = new AdapterRecyclerView(sitios, getSupportFragmentManager());
                 rcvUsuarios.setAdapter(adaptador);
             }
 
@@ -97,7 +97,7 @@ public class Favoritos extends AppCompatActivity {
         SitiosADO db = new SitiosADO(this);
         ArrayList<Sitios> sitios = db.listar();
 
-        AdapterRecyclerView adaptador = new AdapterRecyclerView(sitios);
+        AdapterRecyclerView adaptador = new AdapterRecyclerView(sitios, getSupportFragmentManager());
         rcvUsuarios.setAdapter(adaptador);
 
     }

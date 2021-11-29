@@ -61,19 +61,20 @@ public class SitiosADO extends SqliteConectionSitios {
         try
         {
             Cursor cregistros = db.rawQuery("select id, nombre, descripcion, tipo, latitud, longitud from sitios where id = " + String.valueOf(id), null);
-            cregistros.moveToFirst();
-            sit = new Sitios();
-            sit.setId(cregistros.getInt(0));
-            sit.setNombre(cregistros.getString(1));
-            sit.setDescripcion(cregistros.getString(2));
-            sit.setTipo(cregistros.getString(3));
-            sit.setLatitud(cregistros.getDouble(4));
-            sit.setLongitud(cregistros.getDouble(5));
-
+            if(cregistros.getCount()>0) {
+                cregistros.moveToFirst();
+                sit = new Sitios();
+                sit.setId(cregistros.getInt(0));
+                sit.setNombre(cregistros.getString(1));
+                sit.setDescripcion(cregistros.getString(2));
+                sit.setTipo(cregistros.getString(3));
+                sit.setLatitud(cregistros.getDouble(4));
+                sit.setLongitud(cregistros.getDouble(5));
+            }
         }
         catch (Exception ex)
         {
-
+            System.out.println(ex.getMessage());
         }
         finally {
             db.close();
@@ -153,8 +154,8 @@ public class SitiosADO extends SqliteConectionSitios {
 
         try
         {
-            db.execSQL("DELETE FROM sitios" +
-                    "      WHERE id = '" + String.valueOf(id) + "'");
+            db.execSQL("DELETE FROM sitios " +
+                    "      WHERE id = " + String.valueOf(id));
             eliminado=true;
         }
         catch (Exception ex)

@@ -2,6 +2,7 @@ package com.example.favoritapp;
 
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -15,7 +16,7 @@ import com.example.favoritapp.modelos.Sitios;
 import com.example.favoritapp.viewmodels.SitiosViewModel;
 
 
-public class FragmentDetallesSitio extends Fragment {
+public class FragmentDetallesSitio extends DialogFragment {
 
 
     public FragmentDetallesSitio() {

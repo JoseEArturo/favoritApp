@@ -1,5 +1,6 @@
 package com.example.favoritapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
@@ -13,7 +14,10 @@ import android.widget.Spinner;
 import com.example.favoritapp.ado.SitiosADO;
 import com.example.favoritapp.clases.Mensajes;
 import com.example.favoritapp.modelos.Sitios;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -56,12 +60,20 @@ public class Registrar_sitio extends AppCompatActivity {
             if(parametros.containsKey("id"))
             {
                 SitiosADO db = new SitiosADO(this);
-                Sitios sit = db.obtenerSitio(parametros.getLong("id"));
-                if(sit==null)
-                    sit = database.getReference().child("Sitios").child(String.valueOf(parametros.getLong("id"))).get().getResult().getValue(Sitios.class);
+                long id = parametros.getLong("id");
+                registro = db.obtenerSitio(id);
+                if(registro==null)
+                    database.getReference().child("Sitios").child(String.valueOf(id)).get().addOnCompleteListener(this, new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            registro = task.getResult().getValue(Sitios.class);
+                            cargarDatos();
 
-                this.registro = sit;
-                cargarDatos();
+                        }
+                    });
+                else
+                    cargarDatos();
+
             }
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {

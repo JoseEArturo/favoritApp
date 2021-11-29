@@ -47,13 +47,13 @@
             android:name=".Detalle_sitio"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".Favoritos"
             android:exported="false" />
         <activity
             android:name=".AcercaDe"
             android:exported="false" />
         <activity
-            android:name=".Favoritos"
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
