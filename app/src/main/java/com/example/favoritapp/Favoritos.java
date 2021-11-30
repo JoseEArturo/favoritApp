@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.favoritapp.adapters.AdapterRecyclerView;
@@ -19,8 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Favoritos extends AppCompatActivity {
+
+    ArrayList<Sitios> sitios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +43,7 @@ public class Favoritos extends AppCompatActivity {
         RecyclerView rcvUsuarios = (RecyclerView) findViewById(R.id.favoritos_rcwMarcadores);
         rcvUsuarios.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<Sitios> sitios = new ArrayList<>();
+        sitios = new ArrayList<>();
         database.getReference().child("Sitios").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -66,6 +70,7 @@ public class Favoritos extends AppCompatActivity {
 
         FloatingActionButton btnAgregarSitio = (FloatingActionButton) findViewById(R.id.favoritos_fbtnNuevo);
         FloatingActionButton btnVolver = (FloatingActionButton) findViewById(R.id.favoritos_fbtnRegresar);
+        SearchView buscador = (SearchView) findViewById(R.id.favoritos_Buscar);
 
 
         btnAgregarSitio.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +87,33 @@ public class Favoritos extends AppCompatActivity {
             }
         });
 
+        buscador.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                buscar(s);
+                return true;
+            }
+        });
+
     }
+
+    private void buscar(String s) {
+        ArrayList <Sitios> miLista = new ArrayList<>();
+        for(Sitios obj:sitios){
+                if(obj.getNombre().toLowerCase().contains(s.toLowerCase())){
+                    miLista.add(obj);
+                }
+                AdapterRecyclerView adapter = new AdapterRecyclerView(miLista, null);
+                RecyclerView rcvUsuarios = (RecyclerView) findViewById(R.id.favoritos_rcwMarcadores);
+                rcvUsuarios.setAdapter(adapter);
+        }
+    }
+
     @Override
     protected void onResume() {
         super.onResume();

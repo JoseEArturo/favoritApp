@@ -17,59 +17,24 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:title="Tus sitios favoritos" />
 
-    <EditText
-        android:id="@+id/favoritos_txtCriterio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/favoritos_toolbar"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_toStartOf="@+id/favoritos_btnBuscar"
-        android:background="@drawable/figuraboton"
-        android:backgroundTint="#FFFFFF"
-        android:ellipsize="end"
-        android:gravity="center_vertical"
-        android:hint="@string/recyclerview_maestro"
-        android:maxLines="1"
-        android:src="@android:drawable/ic_menu_save" />
 
-    <ImageButton
-        android:id="@+id/favoritos_btnBuscar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/favoritos_toolbar"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/figuraboton"
-        android:backgroundTint="#FFFFFF"
-        android:ellipsize="end"
-        android:gravity="center_vertical"
-        android:maxLines="1"
-        android:src="@android:drawable/ic_menu_search"
-        android:text="Eliminar" />
-
-    <View
-        android:id="@+id/favoritos_linea"
+    <SearchView
+        android:id="@+id/favoritos_Buscar"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/favoritos_btnBuscar"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:background="#D3D3D3" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/favoritos_toolbar"
+        android:layout_marginTop="-1dp"
+        android:layout_marginBottom="0dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favoritos_rcwMarcadores"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/favoritos_linea"
+        android:layout_height="300dp"
+        android:layout_below="@+id/favoritos_toolbar"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="55dp"
         android:layout_marginEnd="8dp"
         android:scrollbars="vertical">
 
