@@ -3,6 +3,7 @@ package com.example.favoritapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ public class Registrar_sitio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_sitio);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        Context contexto = this;
 
         txtNombre = (EditText) findViewById(R.id.registrarSitio_txtNombre);
         txtDescripcion = (EditText) findViewById(R.id.registrarSitio_txtDescripcion);
@@ -45,6 +47,18 @@ public class Registrar_sitio extends AppCompatActivity {
         Button btnGuardar = (Button) findViewById(R.id.registrarSitio_btnGuardar);
         Button btnVolver = (Button) findViewById(R.id.registrarSitio_btnCancelar);
         ImageButton btnObtenersitio = (ImageButton) findViewById(R.id.registrarSitio_ibtnObtenerUbicacion);
+
+        //Conexión al mapa
+
+        btnObtenersitio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent vistamapa = new Intent (contexto,Mapa.class);
+                startActivity(vistamapa);
+
+            }
+        });
+
 
         android.widget.ArrayAdapter<String> adaptador = new android.widget.ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item);
 
