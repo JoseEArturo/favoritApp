@@ -18,19 +18,38 @@ import com.example.favoritapp.viewmodels.SitiosViewModel;
 
 public class FragmentDetallesSitio extends DialogFragment {
 
+    private String tipo;
+    private String nombre;
+    private String descripcion;
+    private double lat;
+    private double lon;
 
     public FragmentDetallesSitio() {
-        // Required empty public constructor
     }
 
-    public static FragmentDetallesSitio newInstance(String param1, String param2) {
-        FragmentDetallesSitio fragment = new FragmentDetallesSitio();
-        return fragment;
+    public static FragmentDetallesSitio newInstance(String tip, String nom, String des, double la, double lo) {
+        FragmentDetallesSitio fragmento = new FragmentDetallesSitio();
+        Bundle args = new Bundle();
+        args.putString("tipo", tip);
+        args.putString("nombre", nom);
+        args.putString("descripcion", des);
+        args.putDouble("latitud", la);
+        args.putDouble("longitud", lo);
+        fragmento.setArguments(args);
+        return fragmento;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            tipo = getArguments().getString("tipo");
+            nombre = getArguments().getString("nombre");
+            descripcion = getArguments().getString("descripcion");
+            lat = getArguments().getDouble("latitud");
+            lon = getArguments().getDouble("longitud");
+        }
     }
 
     @Override

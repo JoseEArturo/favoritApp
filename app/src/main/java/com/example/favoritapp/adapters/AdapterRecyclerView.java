@@ -62,6 +62,11 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         private TextView txtNombre;
         private TextView txtDescripcion;
         private TextView txtTipo;
+        private String nombre;
+        private String descripcion;
+        private String tipo;
+        private double latitud;
+        private double longitud;
         private long id;
 
         public ViewHolderRegistro(@NonNull View itemView, @NonNull FragmentManager f) {
@@ -129,7 +134,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             btnMapa.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                  new MapFragmentSitios().show(f, null);
+                    MapFragmentSitios.newInstance(latitud, longitud).show(f,null);
 
                 }
             });
@@ -137,7 +142,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             btnDetalles.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    new FragmentDetallesSitio().show(f, null);
+                    FragmentDetallesSitio.newInstance(tipo, nombre, descripcion, latitud, longitud).show(f,null);
 
                 }
             });
@@ -148,6 +153,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             txtDescripcion.setText(sit.getDescripcion());
             txtTipo.setText(sit.getTipo());
             id = sit.getId();
+            latitud = sit.getLatitud();
+            longitud = sit.getLongitud();
         }
     }
 }

@@ -39,10 +39,20 @@ public class MapFragmentSitios extends DialogFragment {
          return fragmento;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            lat = getArguments().getDouble("latitud");
+            lon = getArguments().getDouble("longitud");
+        }
+    }
+
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         @Override
         public void onMapReady(GoogleMap googleMap) {
+            /*
             SitiosViewModel usvm = ViewModelProviders.of(getActivity()).get(SitiosViewModel.class);
             usvm.getSitio().observe(getViewLifecycleOwner(), new Observer<Sitios>() {
                 @Override
@@ -54,6 +64,12 @@ public class MapFragmentSitios extends DialogFragment {
                     googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
                 }
             });
+            */
+            LatLng sydney = new LatLng(lat, lon);
+            googleMap.clear();
+            googleMap.addMarker(new MarkerOptions().position(sydney).title("Posicion"));
+            googleMap.setMinZoomPreference(10);
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
     };
 
