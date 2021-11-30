@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import com.example.favoritapp.ado.SitiosADO;
@@ -43,6 +44,7 @@ public class Registrar_sitio extends AppCompatActivity {
         spinnerSitio = (Spinner) findViewById(R.id.registrarSitio_spnTipo);
         Button btnGuardar = (Button) findViewById(R.id.registrarSitio_btnGuardar);
         Button btnVolver = (Button) findViewById(R.id.registrarSitio_btnCancelar);
+        ImageButton btnObtenersitio = (ImageButton) findViewById(R.id.registrarSitio_ibtnObtenerUbicacion);
 
         android.widget.ArrayAdapter<String> adaptador = new android.widget.ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item);
 
