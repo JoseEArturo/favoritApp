@@ -65,7 +65,7 @@ public class FragmentDetallesSitio extends DialogFragment {
         EditText txtLatitud = (EditText) vista.findViewById(R.id.fragmento_detalles_txtLatitud);
         EditText txtLongitud = (EditText) vista.findViewById(R.id.fragmento_detalles_txtLongitud);
 
-        SitiosViewModel usuariovm = ViewModelProviders.of(getActivity()).get(SitiosViewModel.class);
+       /* SitiosViewModel usuariovm = ViewModelProviders.of(getActivity()).get(SitiosViewModel.class);
         usuariovm.getSitio().observe(getViewLifecycleOwner(), new Observer<Sitios>() {
             @Override
             public void onChanged(Sitios sit) {
@@ -75,7 +75,14 @@ public class FragmentDetallesSitio extends DialogFragment {
                 txtLatitud.setText(String.valueOf(sit.getLatitud()));
                 txtLongitud.setText(String.valueOf(sit.getLongitud()));
             }
-        });
+        });*/
+        if(tipo!=null && nombre!=null && descripcion!=null && !(lat==0) && !(lon==0)){
+            txtTipo.setText(tipo);
+            txtNombre.setText(nombre);
+            txtDescripcion.setText(descripcion);
+            txtLatitud.setText(String.valueOf(lat));
+            txtLongitud.setText(String.valueOf(lon));
+        }
 
         return vista;
     }

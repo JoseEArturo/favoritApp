@@ -9,6 +9,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Mapa extends AppCompatActivity {
 
+    private double latitud;
+    private double longitud;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,23 @@ public class Mapa extends AppCompatActivity {
                 startActivity(new Intent(Mapa.this, Registrar_sitio.class));
             }
         });
+
+    }
+
+    public void actualizarCoordenada(double lat, double lon)
+    {
+        this.latitud = lat;
+        this.longitud = lon;
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Intent i = new Intent();
+        i.putExtra("latitud", this.latitud);
+        i.putExtra("longitud", this.longitud);
+        setResult(1000,i);
+        finish();
 
     }
 }

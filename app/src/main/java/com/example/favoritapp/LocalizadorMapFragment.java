@@ -2,19 +2,13 @@ package com.example.favoritapp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.favoritapp.modelos.Sitios;
-import com.example.favoritapp.viewmodels.SitiosViewModel;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,25 +16,24 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapFragmentSitios extends DialogFragment {
+public class LocalizadorMapFragment extends Fragment {
 
     private double lat;
     private double lon;
 
-    public MapFragmentSitios(){
+    public LocalizadorMapFragment(){
 
     }
 
-    public static MapFragmentSitios newInstance(double la, double lo){
-         MapFragmentSitios fragmento = new MapFragmentSitios();
-         Bundle args = new Bundle();
-         args.putDouble("latitud", la);
-         args.putDouble("longitud", lo);
-         fragmento.setArguments(args);
-         return fragmento;
+    public static LocalizadorMapFragment newInstance(double la, double lo){
+        LocalizadorMapFragment fragmento = new LocalizadorMapFragment();
+        Bundle args = new Bundle();
+        args.putDouble("latitud", la);
+        args.putDouble("longitud", lo);
+        fragmento.setArguments(args);
+        return fragmento;
     }
 
-    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -51,26 +44,20 @@ public class MapFragmentSitios extends DialogFragment {
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
+
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            /*
-            SitiosViewModel usvm = ViewModelProviders.of(getActivity()).get(SitiosViewModel.class);
-            usvm.getSitio().observe(getViewLifecycleOwner(), new Observer<Sitios>() {
+            LatLng bogota = new LatLng(4.732008, -74.068576);
+            googleMap.addMarker(new MarkerOptions().position(bogota).title("Marcador de Colombia"));
+            googleMap.setMinZoomPreference(10);
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(bogota));
+            googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
-                public void onChanged(Sitios sitio) {
-                    LatLng sydney = new LatLng(sitio.getLatitud(), sitio.getLongitud());
-                    googleMap.clear();
-                    googleMap.addMarker(new MarkerOptions().position(sydney).title("Posicion"));
-                    googleMap.setMinZoomPreference(10);
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                public void onMapClick(@NonNull LatLng latLng) {
+                    ((Mapa) getActivity()).actualizarCoordenada(latLng.latitude, latLng.longitude);
+                    ((Mapa) getActivity()).onBackPressed();
                 }
             });
-            */
-            LatLng sydney = new LatLng(lat, lon);
-            googleMap.clear();
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Posicion"));
-            googleMap.setMinZoomPreference(17);
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
     };
 
@@ -79,7 +66,7 @@ public class MapFragmentSitios extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_map_sitios, container, false);
+        return inflater.inflate(R.layout.fragment_localizador_map, container, false);
     }
 
     @Override

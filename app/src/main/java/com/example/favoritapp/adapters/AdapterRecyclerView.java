@@ -68,6 +68,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         private double latitud;
         private double longitud;
         private long id;
+        private Sitios sitio;
 
         public ViewHolderRegistro(@NonNull View itemView, @NonNull FragmentManager f) {
 
@@ -142,7 +143,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             btnDetalles.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    FragmentDetallesSitio.newInstance(tipo, nombre, descripcion, latitud, longitud).show(f,null);
+                    FragmentDetallesSitio.newInstance(sitio.getTipo(), sitio.getNombre(), sitio.getDescripcion(), latitud, longitud).show(f,null);
 
                 }
             });
@@ -155,6 +156,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             id = sit.getId();
             latitud = sit.getLatitud();
             longitud = sit.getLongitud();
+            sitio = sit;
         }
     }
 }

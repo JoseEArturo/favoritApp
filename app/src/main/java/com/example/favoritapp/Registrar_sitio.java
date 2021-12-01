@@ -1,6 +1,7 @@
 package com.example.favoritapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -54,7 +55,7 @@ public class Registrar_sitio extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent vistamapa = new Intent (contexto,Mapa.class);
-                startActivity(vistamapa);
+                startActivityForResult(vistamapa, 1000);
 
             }
         });
@@ -191,5 +192,16 @@ public class Registrar_sitio extends AppCompatActivity {
         //this.spinnerSitio.getSelectedItem(this.registro.getTipo());
         this.txtLatitud.setText( String.valueOf(this.registro.getLatitud()));
         this.txtLongitud.setText( String.valueOf(this.registro.getLongitud()));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==1000)
+        {
+            Bundle datos = data.getExtras();
+            this.txtLatitud.setText(String.valueOf(datos.getDouble("latitud")));
+            this.txtLongitud.setText(String.valueOf(datos.getDouble("longitud")));
+        }
     }
 }
